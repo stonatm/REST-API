@@ -43,8 +43,11 @@ Function return pin value or string with error description if any occur.
 ```
 function notify( message )
 ```
-
 Sends a notification to android blynk app with given message.
+
+parameters:
+
+**message** - message text to send
 
 ```
 function is_app_connected()
@@ -70,4 +73,46 @@ if blynk.is_app_connected() == "true":
 
 Access to adafruit.io service via REST API
 
+```
+function init(username, aio)
+```
+
+Initialize library with username and adafruit AIO key.
+
+parameters:
+
+**username** - your adafruit.io username.
+
+**aio** - your adafruit.io AIO access key.
+
+
+```
+function write_feed(feed_name, value)
+```
+Write a value to feed
+
+parameters:
+
+**feed_name** - your adafruit feed name.
+
+**value** - value to sent to given feed
+
+```
+function read_feed(feed_name)
+```
+
+Read last stored value from given feed.
+
+parameters:
+
+**feed_name** - your adafruit feed name.
+
+Example:
+
+```
+from adafruit import adafruit
+adafruit.init('ADAFRUIT_USERNAME', 'YOUR_AIO_KEY')
+
+adafruit.write_feed('FEED_NAME', 23.5)
+print( adafruit.read_feed('FEED_NAME') )
 ```
