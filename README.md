@@ -74,7 +74,7 @@ if blynk.is_app_connected() == "true":
 Access to adafruit.io service via REST API
 
 ```
-function init(username, aio)
+function init( username, aio )
 ```
 
 Initialize library with username and adafruit AIO key.
@@ -87,7 +87,7 @@ parameters:
 
 
 ```
-function write_feed(feed_name, value)
+function write_feed( feed_name, value )
 ```
 Write a value to feed
 
@@ -115,4 +115,66 @@ adafruit.init('ADAFRUIT_USERNAME', 'YOUR_AIO_KEY')
 
 adafruit.write_feed('FEED_NAME', 23.5)
 print( adafruit.read_feed('FEED_NAME') )
+```
+
+## tspeak.py ![tspeak.png](tspeak.png)
+
+Access to thingspeak service via REST API
+
+```
+function init( channel_id, read_key, write_key )
+```
+
+Initialize library with your channel id number and access keys.
+
+parameters:
+
+**channel_id** - your thingspeak channel id number
+
+**read_key** - your thingspeak read access key
+
+**write_key** - your thingspeak write access key
+
+```
+function write_channel( channel_number, value )
+```
+
+Write a value to thingspeak given channel number.
+
+parameters:
+
+**channel_number** - channel number (1-8)
+
+**value** - a value to write to given channel number
+
+Function returns a three type of value:
+
+- **-1** when errors occur.
+
+- **0** when data was rejected due to sending more than once every 15 seconds.
+
+- **integer number** when data was stored. This is the next *entry id* of the message sent to channel.
+
+
+```
+function read_channel( channel_number )
+```
+
+Read last stored value from given channel number.
+
+parameters:
+
+**channel_number** - channel number (1-8)
+
+If any error occurs function return a **-1** value.
+
+Example:
+
+```
+from tspeak import tspeak
+tspeak.init( 'CHANNEL_ID_NUMBER', 'READ_KEY', 'WRITE_KEY' )
+
+tspeak.write_channel( 1, 123.5)
+# wait 15 seconds before sending next data to the next channels
+print( tspeak.read_channel(1) )
 ```
