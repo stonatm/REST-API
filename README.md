@@ -2,7 +2,7 @@
 # REST API
 Short &amp; simple micropython scripts
 
-## blynk.py
+## blynk.py ![blynk.png](blynk.png)
 
 
 Access to Blynk service via REST API
@@ -69,7 +69,7 @@ if blynk.is_app_connected() == "true":
 
 ```
 
-## adafruit.py
+## adafruit.py ![adafruit.png](adafruit.png)
 
 Access to adafruit.io service via REST API
 
