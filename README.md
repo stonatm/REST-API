@@ -178,3 +178,88 @@ tspeak.write_channel( 1, 123.5)
 # wait 15 seconds before sending next data to the next channels
 print( tspeak.read_channel(1) )
 ```
+
+## accuweat.py ![accuweather.png](accuweather.png)
+
+Access to accuweather.com synoptic data via REST API
+
+### How to get your Api Key:
+ - create account on https://developer.accuweather.com/user/login
+ - after create account and login click "add new app" and get API Key
+
+### How to find city ID for your city:
+ - open https://developer.accuweather.com/accuweather-locations-api/apis/get/locations/v1/cities/search
+ - fill field **apikey** with your api key and **q** with your city name to search in *Query Parameters* section
+ - click **Send this request**
+
+```
+function init(apikey, cityid)
+```
+
+Initialize the library with Api key and city id number. You must run this function before use other functions from this library.
+
+parameters:
+
+**apikey** - your accuweather.com account apikey
+
+**cityid** - your city id number
+
+```
+function refreshData()
+```
+Get actual synoptic data from accuweather.com and store them to later use by read... functions. In free trial account there is a 50 requests per day limit.
+
+```
+readTemperature()
+```
+
+Return temperature for your city
+
+```
+function readWeatherText()
+```
+
+Return text description of weather for your city like **"Sunny"**, **"Cloudy"** etc.
+
+```
+function readWeatherIcon()
+```
+
+Return only icon number (not icon) according to actual weather in your city.
+Icon list: https://developer.accuweather.com/weather-icons
+
+```
+function readIsDayTime()
+```
+
+Return **True** if in your city is a day time otherwise return **False**
+
+```
+function readLocalObserwationDate()
+```
+
+Return a local date of obserwation in your city. Return string in format **YYYY-MM-DD**
+
+```
+function readLocalObserwationTime()
+```
+
+Return a local time of obserwation in your city. Return string in format **HH:MM:SS**
+
+All of read functions return proper data or text description of error if any occur.
+
+### example
+
+```
+from accuweat import accuweat
+accuweat.init( 'ACCUWEATHER_API_KEY', 265168)
+
+accuweat.refreshData()
+
+print( accuweat.readTemperature() )
+print( accuweat.readWeatherText() )
+print( accuweat.readWeatherIcon() )
+print( accuweat.readIsDayTime() )
+print( accuweat.readLocalObserwationTime() )
+print( accuweat.readLocalObserwationDate() )
+```
