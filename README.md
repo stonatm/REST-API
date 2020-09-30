@@ -263,3 +263,90 @@ print( accuweat.readIsDayTime() )
 print( accuweat.readLocalObserwationTime() )
 print( accuweat.readLocalObserwationDate() )
 ```
+## imgw.py ![imgw.png](imgw.png)
+
+Access to Polish synoptic data service imgw.pl via REST API
+
+```
+acquireData(station_id)
+```
+
+Downloading synoptic data from the service for a given station id and store it in memory for later use.
+
+parameters:
+
+**station_id** - your station (city) id number
+
+### List of station id's and city names - [imgw.csv](imgw.csv)
+
+All the functions described below return the stored data retrieved by the function **acquireData**.
+
+```
+function getStationID()
+```
+Return station id number.
+
+```
+function getStationName()
+```
+Return station name (city).
+
+```
+function getMeasurementDate()
+```
+Return measurement date (string formated as *YYYY-MM-DD*).
+
+```
+function getMeasurementTime()
+```
+Return hour of measurement time (string formated as *HH*).
+
+```
+function getTemperature()
+```
+Return temperature (**°C**).
+
+```
+function getWindSpeed()
+```
+Return wind speed (**m/s**).
+
+```
+function getWindDirection()
+```
+Return wind direction (azimuth/angle i'm not sure ).
+
+```
+function getRelativeHumidity()
+```
+Return relative humidity (**%RH**).
+
+```
+function getTotalRainfall()
+```
+Return total rainfall (**cm**).
+
+
+```
+function getPressure()
+```
+Return pressure (**hPa**).
+
+
+### example
+Text descriptions in example are in Polish due to the website offering only data for Polish cities.
+```
+import imgw
+
+imgw.acquireData(12360)
+print('id stacji: ' + imgw.getStationID())
+print('nazwa stacji: ' + imgw.getStationName())
+print('data pomiaru: ' + imgw.getMeasurementDate())
+print('godzina pomiaru: ' + imgw.getMeasurementTime() + ':00')
+print('temperatura: ' + imgw.getTemperature() + ' °C')
+print('prędkość wiatru: ' + imgw.getWindSpeed() + ' m/s')
+print('kierunek wiatru: ' + imgw.getWindDirection() + ' °')
+print('wilgotność: ' + imgw.getRelativeHumidity() + ' %')
+print('suma opadów: ' + imgw.getTotalRainfall() + ' cm')
+print('ciśnienie: ' + imgw.getPressure() + ' hPa')
+```
