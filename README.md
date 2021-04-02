@@ -324,7 +324,7 @@ Return relative humidity (**%RH**).
 ```
 function getTotalRainfall()
 ```
-Return total rainfall (**cm**).
+Return total rainfall (**mm**).
 
 
 ```
@@ -347,6 +347,6 @@ print('temperatura: ' + imgw.getTemperature() + ' °C')
 print('prędkość wiatru: ' + imgw.getWindSpeed() + ' m/s')
 print('kierunek wiatru: ' + imgw.getWindDirection() + ' °')
 print('wilgotność: ' + imgw.getRelativeHumidity() + ' %')
-print('suma opadów: ' + imgw.getTotalRainfall() + ' cm')
+print('suma opadów: ' + imgw.getTotalRainfall() + ' mm')
 print('ciśnienie: ' + imgw.getPressure() + ' hPa')
 ```
