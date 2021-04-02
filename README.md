@@ -16,7 +16,7 @@ Store authorization token to use with others functions.
 parameters:
 
 **token** - authorization token.
-
+___
 ```
 function write_pin( pin, value )
 ```
@@ -27,10 +27,9 @@ parameters:
 **pin** - pin name (must be string like *"V0"*, *"V1"*).
 
 **value** - a value to be writen to pin.
-
+___
 ```
 function read_pin( pin )
-
 ```
 Read a pin value.
 
@@ -39,7 +38,7 @@ parameters:
 **pin** - pin name to read
 
 Function return pin value or string with error description if any occur.
-
+___
 ```
 function notify( message )
 ```
@@ -48,14 +47,14 @@ Sends a notification to android blynk app with given message.
 parameters:
 
 **message** - message text to send
-
+___
 ```
 function is_app_connected()
 ```
 Function check if android app is connected with blynk service.
 
 Function returns strings "true" or "false" (they are not boolean logical values)
-
+___
 Example:
 ```
 from blynk import blynk
@@ -84,8 +83,7 @@ parameters:
 **username** - your adafruit.io username.
 
 **aio** - your adafruit.io AIO access key.
-
-
+___
 ```
 function write_feed( feed_name, value )
 ```
@@ -96,7 +94,7 @@ parameters:
 **feed_name** - your adafruit feed name.
 
 **value** - value to sent to given feed
-
+___
 ```
 function read_feed(feed_name)
 ```
@@ -106,7 +104,7 @@ Read last stored value from given feed.
 parameters:
 
 **feed_name** - your adafruit feed name.
-
+___
 Example:
 
 ```
@@ -134,7 +132,7 @@ parameters:
 **read_key** - your thingspeak read access key
 
 **write_key** - your thingspeak write access key
-
+___
 ```
 function write_channel( channel_number, value )
 ```
@@ -155,7 +153,7 @@ Function returns a three type of value:
 
 - **integer number** when data was stored. This is the next *entry id* of the message sent to channel.
 
-
+___
 ```
 function read_channel( channel_number )
 ```
@@ -167,7 +165,7 @@ parameters:
 **channel_number** - channel number (1-8)
 
 If any error occurs function return a **-1** value.
-
+___
 Example:
 
 ```
@@ -203,49 +201,43 @@ parameters:
 **apikey** - your accuweather.com account apikey
 
 **cityid** - your city id number
-
+___
 ```
 function refreshData()
 ```
 Get actual synoptic data from accuweather.com and store them to later use by read... functions. In free trial account there is a 50 requests per day limit.
-
+___
 ```
 readTemperature()
 ```
-
 Return temperature for your city
-
+___
 ```
 function readWeatherText()
 ```
-
 Return text description of weather for your city like **"Sunny"**, **"Cloudy"** etc.
-
+___
 ```
 function readWeatherIcon()
 ```
-
 Return only icon number (not icon) according to actual weather in your city.
 Icon list: https://developer.accuweather.com/weather-icons
-
+___
 ```
 function readIsDayTime()
 ```
-
 Return **True** if in your city is a day time otherwise return **False**
-
+___
 ```
 function readLocalObserwationDate()
 ```
-
 Return a local date of obserwation in your city. Return string in format **YYYY-MM-DD**
-
+___
 ```
 function readLocalObserwationTime()
 ```
-
 Return a local time of obserwation in your city. Return string in format **HH:MM:SS**
-
+___
 All of read functions return proper data or text description of error if any occur.
 
 ### example
@@ -276,7 +268,7 @@ Downloading synoptic data from the service for a given station id and store it i
 parameters:
 
 **station_id** - your station (city) id number
-
+___
 ### List of station id's and city names - [imgw.csv](imgw.csv)
 
 All the functions described below return the stored data retrieved by the function **acquireData**.
@@ -285,53 +277,52 @@ All the functions described below return the stored data retrieved by the functi
 function getStationID()
 ```
 Return station id number.
-
+___
 ```
 function getStationName()
 ```
 Return station name (city).
-
+___
 ```
 function getMeasurementDate()
 ```
 Return measurement date (string formated as *YYYY-MM-DD*).
-
+___
 ```
 function getMeasurementTime()
 ```
 Return hour of measurement time (string formated as *HH*).
-
+___
 ```
 function getTemperature()
 ```
 Return temperature (**°C**).
-
+___
 ```
 function getWindSpeed()
 ```
 Return wind speed (**m/s**).
-
+___
 ```
 function getWindDirection()
 ```
 Return wind direction (azimuth/angle i'm not sure ).
-
+___
 ```
 function getRelativeHumidity()
 ```
 Return relative humidity (**%RH**).
-
+___
 ```
 function getTotalRainfall()
 ```
 Return total rainfall (**mm**).
-
-
+___
 ```
 function getPressure()
 ```
 Return pressure (**hPa**).
-
+___
 
 ### example
 Text descriptions in example are in Polish due to the website offering only data for Polish cities.
