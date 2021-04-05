@@ -347,17 +347,26 @@ Sending push message thru pushsafer.com service via REST API. Only a message pus
 ```
 send_notification(private_key, device, title, message, sound, vibration, icon )
 ```
-Send notification to *device* with *message*
+Send notification to **device** with **message**.
+
 Returns **1** when message is sent or **0** when any error occured.
 
 parameters:
+
 **private_key** - your private key
-**device** - target device message id 
+
+**device** - target device message id
+
 **title** - title of message
+
 **message** - message to sent
+
 **sound** - (1-62) which played sound number (0 = silent)
+
 **vibration** - how ofyen may vibrate (0-3)
+
 **icon** - icon number (1-177)
+
 ___
  ### example
 ```
