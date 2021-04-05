@@ -341,3 +341,26 @@ print('wilgotność: ' + imgw.getRelativeHumidity() + ' %')
 print('suma opadów: ' + imgw.getTotalRainfall() + ' mm')
 print('ciśnienie: ' + imgw.getPressure() + ' hPa')
 ```
+## pushsafer.py
+Sending push message thru pushsafer.com service via REST API. Only a message push was implemented.
+
+```
+send_notification(private_key, device, title, message, sound, vibration, icon )
+```
+Send notification to *device* with *message*
+Returns **1** when message is sent or **0** when any error occured.
+
+parameters:
+**private_key** - your private key
+**device** - target device message id 
+**title** - title of message
+**message** - message to sent
+**sound** - (1-62) which played sound number (0 = silent)
+**vibration** - how ofyen may vibrate (0-3)
+**icon** - icon number (1-177)
+___
+ ### example
+```
+import pushsafer
+pushsafer.send_notification( 'KEY', 'DEVICEID', 'Message title', 'Message content', 1, 1, 1 )
+```
