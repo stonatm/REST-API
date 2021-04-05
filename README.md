@@ -341,7 +341,7 @@ print('wilgotność: ' + imgw.getRelativeHumidity() + ' %')
 print('suma opadów: ' + imgw.getTotalRainfall() + ' mm')
 print('ciśnienie: ' + imgw.getPressure() + ' hPa')
 ```
-## pushsafer.py
+## pushsafer.py ![pushsafer.jpg](pushsafer.jpg)
 Sending push message thru pushsafer.com service via REST API. Only a message push was implemented.
 
 ```
